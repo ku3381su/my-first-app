@@ -1,11 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10172a">
+  <title>SKY HOP - 横スクロールアクション</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-    ようこそ私のページへ！
+  <main class="game-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="SKY HOP ホーム">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span>SKY HOP</span>
+      </a>
+      <p class="topbar-note">小さな冒険のはじまり</p>
+    </header>
+
+    <section class="intro" aria-labelledby="game-title">
+      <div>
+        <p class="eyebrow">SIDE-SCROLLING MINI GAME</p>
+        <h1 id="game-title">雲の向こうへ。</h1>
+        <p class="intro-copy">コインを集めながら、ゴールの旗を目指そう。</p>
+      </div>
+      <div class="objective"><span aria-hidden="true">🏁</span> ゴールまであと少し！</div>
+    </section>
+
+    <section class="game-card" aria-label="ゲーム">
+      <div class="game-hud">
+        <div class="hud-item">
+          <span class="hud-label">COINS</span>
+          <span class="hud-value"><span aria-hidden="true">●</span> <span id="coin-count">0</span><span class="hud-total"> / 8</span></span>
+        </div>
+        <div class="level-pill"><span class="status-dot"></span> STAGE 01 <span class="level-divider">/</span> SKY ISLAND</div>
+        <button class="restart-button" id="restart-button" type="button" aria-label="ゲームを最初からやり直す">
+          <span aria-hidden="true">↻</span> やり直す
+        </button>
+      </div>
+
+      <div class="canvas-wrap">
+        <canvas id="game" width="960" height="540" aria-label="横スクロールアクションゲーム">
+          このゲームを遊ぶには、Canvasに対応したブラウザーが必要です。
+        </canvas>
+        <div class="game-message" id="game-message" role="status" aria-live="polite" hidden>
+          <div class="message-card">
+            <span class="message-icon" id="message-icon" aria-hidden="true">✨</span>
+            <h2 id="message-title">ゴール！</h2>
+            <p id="message-copy">すべてのコインを集めました。</p>
+            <button id="play-again-button" type="button">もう一度プレイ</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-footer">
+        <div class="controls-hint">
+          <span class="key-group"><kbd>←</kbd><kbd>→</kbd></span>
+          <span>または</span>
+          <span class="key-group"><kbd>A</kbd><kbd>D</kbd></span>
+          <span>移動</span>
+          <span class="hint-separator">·</span>
+          <kbd class="space-key">SPACE</kbd>
+          <span>ジャンプ</span>
+        </div>
+        <span class="objective-hint"><span aria-hidden="true">✦</span> コインを集めて旗へ！</span>
+      </div>
+    </section>
+
+    <div class="touch-controls" aria-label="タッチ操作">
+      <button class="touch-button" type="button" data-control="left" aria-label="左へ移動">←</button>
+      <button class="touch-button" type="button" data-control="right" aria-label="右へ移動">→</button>
+      <button class="touch-button jump-button" type="button" data-control="jump" aria-label="ジャンプ">JUMP <span aria-hidden="true">↑</span></button>
+    </div>
+
+    <footer class="page-footer">自分のペースで、空の冒険を楽しもう。</footer>
+  </main>
 </body>
 </html>

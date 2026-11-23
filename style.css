@@ -1,0 +1,249 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap");
+
+:root {
+  color-scheme: dark;
+  font-family: "DM Sans", "Noto Sans JP", sans-serif;
+  color: #eef2ff;
+  background: #10172a;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --muted: #9aa8c3;
+  --line: rgba(159, 180, 224, 0.16);
+  --mint: #73f0cf;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% 43%, rgba(39, 67, 117, 0.23), transparent 58%),
+    #10172a;
+}
+
+button { font: inherit; }
+
+.game-shell {
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 27px 0 25px;
+}
+
+.topbar, .brand, .game-hud, .game-footer, .controls-hint, .key-group {
+  display: flex;
+  align-items: center;
+}
+
+.topbar { justify-content: space-between; }
+
+.brand {
+  gap: 9px;
+  color: #f2f5ff;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-decoration: none;
+}
+
+.brand-mark { color: var(--mint); font-size: 20px; }
+.topbar-note, .page-footer { color: #7785a1; font-size: 12px; }
+.topbar-note { margin: 0; letter-spacing: 0.04em; }
+
+.intro {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 44px 0 23px;
+}
+
+.eyebrow {
+  margin: 0 0 9px;
+  color: #7de8d0;
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+}
+
+h1 {
+  margin: 0;
+  color: #f3f5ff;
+  font-size: clamp(29px, 4vw, 40px);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.intro-copy { margin: 9px 0 0; color: var(--muted); font-size: 14px; }
+
+.objective {
+  flex: 0 0 auto;
+  padding: 10px 14px;
+  border: 1px solid rgba(115, 240, 207, 0.2);
+  border-radius: 999px;
+  background: rgba(115, 240, 207, 0.07);
+  color: #a7f4df;
+  font-size: 12px;
+}
+
+.objective span { margin-right: 5px; }
+
+.game-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #151f35;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25);
+}
+
+.game-hud {
+  min-height: 67px;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.hud-item { display: flex; align-items: center; gap: 10px; }
+.hud-label, .level-pill { font-family: "DM Mono", monospace; font-size: 10px; letter-spacing: 0.08em; }
+.hud-label { color: #8695b2; }
+.hud-value { color: #ffe18a; font-size: 15px; font-weight: 700; }
+.hud-value > span:first-child { font-size: 11px; }
+.hud-total { color: #8998b4; font-size: 12px; font-weight: 500; }
+
+.level-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #c4cde1;
+  letter-spacing: 0.1em;
+}
+
+.status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 10px rgba(115, 240, 207, 0.6); }
+.level-divider { color: #64728e; }
+
+.restart-button {
+  padding: 8px 11px;
+  border: 1px solid rgba(174, 193, 230, 0.2);
+  border-radius: 7px;
+  background: transparent;
+  color: #c3cce0;
+  cursor: pointer;
+  font-size: 11px;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.restart-button:hover { border-color: rgba(115, 240, 207, 0.55); background: rgba(115, 240, 207, 0.07); }
+.restart-button span { margin-right: 4px; font-size: 14px; }
+
+.canvas-wrap { position: relative; overflow: hidden; background: #91c9ef; }
+
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+  touch-action: none;
+}
+
+.game-footer {
+  min-height: 55px;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 22px;
+  color: #a3afc7;
+  font-size: 11px;
+}
+
+.controls-hint { gap: 8px; }
+.key-group { gap: 3px; }
+kbd {
+  min-width: 22px;
+  padding: 4px 5px;
+  border: 1px solid rgba(178, 194, 225, 0.2);
+  border-radius: 4px;
+  background: #1c2942;
+  color: #e2e8f7;
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  text-align: center;
+}
+.space-key { min-width: 45px; }
+.hint-separator { margin: 0 3px; color: #60708e; }
+.objective-hint { color: #8fe6d0; }
+.objective-hint span { margin-right: 5px; }
+
+.game-message {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(12, 21, 40, 0.63);
+  backdrop-filter: blur(5px);
+}
+
+.game-message[hidden] { display: none; }
+.message-card {
+  width: min(360px, calc(100% - 32px));
+  padding: 30px 24px;
+  border: 1px solid rgba(164, 191, 226, 0.22);
+  border-radius: 14px;
+  background: #17243b;
+  text-align: center;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+}
+.message-icon { font-size: 30px; }
+.message-card h2 { margin: 10px 0 7px; font-size: 24px; }
+.message-card p { margin: 0 0 20px; color: #aab6cd; font-size: 13px; }
+.message-card button {
+  padding: 10px 17px;
+  border: 0;
+  border-radius: 7px;
+  background: var(--mint);
+  color: #102238;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.touch-controls { display: none; }
+.page-footer { margin-top: 21px; text-align: center; }
+
+@media (max-width: 680px) {
+  .game-shell { width: min(100% - 24px, 560px); padding-top: 18px; }
+  .intro { align-items: flex-start; flex-direction: column; gap: 15px; margin: 32px 0 18px; }
+  .intro-copy { font-size: 12px; }
+  .objective { padding: 8px 11px; font-size: 11px; }
+  .game-hud { min-height: 58px; padding: 0 12px; }
+  .level-pill { gap: 5px; font-size: 8px; }
+  .hud-item { gap: 6px; }
+  .hud-label { font-size: 8px; }
+  .hud-value { font-size: 13px; }
+  .restart-button { padding: 7px 8px; font-size: 10px; }
+  .game-footer { min-height: 48px; padding: 0 11px; }
+  .controls-hint { gap: 5px; font-size: 9px; }
+  .objective-hint { font-size: 9px; }
+  .page-footer { font-size: 11px; }
+  .touch-controls { display: flex; justify-content: center; gap: 10px; margin-top: 13px; }
+  .touch-button {
+    width: 54px;
+    height: 46px;
+    border: 1px solid rgba(174, 193, 230, 0.22);
+    border-radius: 9px;
+    background: #18243a;
+    color: #ecf1ff;
+    font-size: 20px;
+    touch-action: none;
+    user-select: none;
+  }
+  .jump-button { width: 105px; margin-left: 18px; color: var(--mint); font-size: 12px; font-weight: 700; }
+  .touch-button:active { background: #263b57; }
+}
+
+@media (max-width: 420px) {
+  .topbar-note { font-size: 10px; }
+  .level-pill { letter-spacing: 0.03em; }
+  .game-footer { align-items: flex-start; flex-direction: column; justify-content: center; gap: 5px; padding: 9px 12px; }
+}
